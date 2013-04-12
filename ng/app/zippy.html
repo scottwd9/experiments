@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>ng-zippy</title>
+</head>
+
+<body>
+
+  <div ng-app="zippy-app">
+    <script type="text/ng-template" id="tz2.html">
+    <div>
+      <h3 ng-click="toggleContent()">{{title}}</h3>
+      <div ng-show="isContentVisible" ng-transclude/>
+    </div>
+    </script>
+    <script type="text/ng-template" id="pwdinput.html">
+      <div><input type="text" ng-model="model.input"/></div>
+    </script>
+
+    <input type="text" ng-model="model.title"/>
+    <input type="text" ng-model="model.content"/>
+
+    <zippy title="{{model.title}}">{{model.content}}</zippy>
+
+    <hr/>
+    <dumbpass/>
+
+  </div>
+
+  <script src="lib/angular/angular.js"></script>
+  <script type="text/javascript" src="js/main-zippy.js"></script>
+
+</body>
+
+</html>
