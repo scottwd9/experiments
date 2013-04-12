@@ -3,10 +3,7 @@
 angular.module('wds-todos', []);
 
 function TodoCtrl($scope) {
-  $scope.todos = [
-    {text: 'learn angular', done: false},
-    {text: 'build app', done:false}
-  ];
+  $scope.todos = [];
 
   $scope.totalTodos = function() {
     return $scope.todos.length;
