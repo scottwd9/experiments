@@ -1,0 +1,10 @@
+{
+  "name": "express-twitter-search",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "ejs": "~0.8.3",
+    "superagent": "~0.14.1",
+    "express": "~3.1.1"
+  }
+}

@@ -1,0 +1,16 @@
+<h1>Twitter Results for: <%= search %></h1>
+
+<% if (results.length) { %>
+
+<ul>
+  <% for (var i = 0; i < results.length; i++) { %>
+  <li><%= results[i].text %> <em><%= results[i].from_user %></a> %></em></li>
+  <% } %>
+</ul>
+
+<% } else { %>
+
+<p>No results!</p>
+
+<% } %>
+
