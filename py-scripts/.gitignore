@@ -1,0 +1,6 @@
+# ---IntelliJ.gitngore---
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
