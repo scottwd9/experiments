@@ -4,6 +4,7 @@ angular.module('wds-todos', []);
 
 function TodoCtrl($scope) {
   $scope.todos = [];
+  $scope.nextId = 1;
 
   $scope.totalTodos = function() {
     return $scope.todos.length;
@@ -13,7 +14,11 @@ function TodoCtrl($scope) {
     if (!$scope.formTodoText) {
       return;
     }
-    $scope.todos.push({text: $scope.formTodoText, done: false});
+    $scope.todos.push({
+        id: $scope.nextId,
+        text: $scope.formTodoText,
+        done: false
+      });
     $scope.formTodoText = '';
   };
 

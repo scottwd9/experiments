@@ -7,35 +7,44 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <style type="text/css">
+.todo-container {
+  margin: 1em auto;
+  max-width: 480px;
+}
+
 .done-true{
   text-decoration: line-through;
   color: grey;
 }
     </style>
 
-    <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
-    <script type="text/javascript" src="http://underscorejs.org/underscore.js"></script>
-    <script type="text/javascript" src="js/todo.js"></script>
-
   </head>
 
   <body>
-    <div ng-controller="TodoCtrl">
-      <h2>Todos: {{totalTodos()}}</h2>
+    <div class="container well todo-container" ng-controller="TodoCtrl">
+      <h3>Todos: {{totalTodos()}}</h3>
       <ul class="unstyled">
         <li ng-repeat="todo in todos">
-          <input type="checkbox" ng-model="todo.done" />
-          <span class="done-{{todo.done}}">{{todo.text}}</span>
+          <label class="checkbox done-{{todo.done}}">
+            <input type="checkbox" ng-model="todo.done" id="todo{{todo.id}}"/>
+            {{todo.text}}
+          </label>
         </li>
       </ul>
       <form class="form-horizontal">
         <input type="text" ng-model="formTodoText" ng-model-instant placeholder="New Todo..."/>
         <button class="btn" ng-click="addTodo()"><i class="icon-plus"></i> Add Todo</button>
       </form>
+      <hr/>
       <p>
         <button class="btn btn-danger" ng-click="clearCompleted()"><i class="icon-trash"></i> Clear Completed</button>
       </p>
     </div>
+
+    <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+    <script type="text/javascript" src="http://underscorejs.org/underscore.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+
   </body>
 
 </html>
