@@ -20,6 +20,7 @@ function TodoCtrl($scope) {
         done: false
       });
     $scope.formTodoText = '';
+    $scope.nextId = $scope.nextId + 1;
   };
 
   $scope.clearCompleted = function() {
@@ -27,5 +28,4 @@ function TodoCtrl($scope) {
       return !todo.done;
     });
   };
-
 }
