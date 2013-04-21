@@ -7,7 +7,7 @@ app.directive('zippy', function () {
       title: '@'
     },
     transclude: true,
-    templateUrl: 'tz2.html',
+    templateUrl: 'tz-inline.html',
     link: function (scope) {
       scope.isContentVisible = false;
 
