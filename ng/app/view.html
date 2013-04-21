@@ -1,13 +1,15 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>ng-view - Angular</title>
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 
-  <div ng-app="app">
+  <div ng-app="app" ng-controller="AppCtrl">
+    <error></error>
     <ng-view></ng-view>
   </div>
 
