@@ -15,14 +15,14 @@
 
   <div ng-app="myApp">
 
-    <div ng-controller="GreetingCtrl" enter="panel" leave="panel" clearname="clearName()">
+    <div ng-controller="GreetingCtrl" enter="panel" leave="panel" clearname="gblah()">
       <input type="text" ng-model="name">
       <h1>{{greeting}},
         <span style="color: {{name}}">{{name}}!</span>
       </h1>
     </div>
 
-    <div ng-controller="RevCtrl" clearname="clearName()">
+    <div ng-controller="RevCtrl" clearname="rblah()">
       <input type="text" ng-model="name">
       <h1>{{greeting}},
         <span style="color: {{name}}">{{name|reverse|uppercase}}!</span>

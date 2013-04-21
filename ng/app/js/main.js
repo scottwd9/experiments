@@ -4,6 +4,8 @@ myApp.factory('Data', function () {
 });
 
 myApp.directive('enter', function () {
+  //restrict defaults to 'A'
+  //if only using link function, can just return a function
   return function (scope, element, attrs) {
     element.bind("mouseenter", function () {
       element.addClass(attrs.enter);
@@ -40,7 +42,7 @@ function GreetingCtrl ($scope, Data) {
   $scope.greeting = Data;
   $scope.name = '';
 
-  $scope.clearName = function () {
+  $scope.gblah = function () {
     $scope.name = '';
   };
 }
@@ -48,7 +50,7 @@ function GreetingCtrl ($scope, Data) {
 function RevCtrl ($scope, Data) {
   $scope.greeting = Data;
   $scope.name = '';
-  $scope.clearName = function () {
+  $scope.rblah = function () {
     $scope.name = '';
   };
 }
