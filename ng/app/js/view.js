@@ -4,7 +4,7 @@
 
   var app = angular.module('app', []);
 
-  app.config(function ($routeProvider) {
+  app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'view-app.html',
@@ -22,9 +22,9 @@
         // template: '???'
         redirectTo: '/'
       });
-  });
+  }]);
 
-  app.directive('error', function ($rootScope) {
+  var errorDirective = app.directive('error', ['$rootScope', function ($rootScope) {
     return {
       restrict: 'E',
       template: '<div class="alert alert-error" ng-show="isError">Error! {{errMsg}}</div>',
@@ -35,21 +35,22 @@
         });
       }
     };
-  });
+  }]);
 
-  var appCtrl = app.controller('AppCtrl', function($rootScope) {
+  var appCtrl = app.controller('AppCtrl', ['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
       console.log(rejection);
     });
-  });
+  }]);
 
 
-  var viewCtrl = app.controller('ViewCtrl', function($scope) {
+  var viewCtrl = app.controller('ViewCtrl', ['$scope', function($scope) {
     $scope.model = {
       message: 'This is my app!'
     };
-  });
-  viewCtrl.loadData = function ($q, $timeout) {
+  }]);
+
+  viewCtrl.loadData = ['$q', '$timeout', function ($q, $timeout) {
     var defer = $q.defer();
 
     $timeout(function() {
@@ -58,8 +59,9 @@
     }, 2000);
 
     return defer.promise;
-  };
-  viewCtrl.prepData = function ($q, $timeout) {
+  }];
+
+  viewCtrl.prepData = ['$q', '$timeout', function ($q, $timeout) {
     var defer = $q.defer();
 
     $timeout(function() {
@@ -68,13 +70,12 @@
     }, 2000);
 
     return defer.promise;
-  };
+  }];
 
-
-  app.controller('EchoCtrl', function($scope, $routeParams) {
+  app.controller('EchoCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
     $scope.model = {
       message: $routeParams.message
     };
-  });
+  }]);
 })();
 
