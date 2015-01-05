@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html ng-app="wds">
+  <head>
+
+    <title>wds</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+
+@-webkit-keyframes pulse_animation {
+  0% { -webkit-transform: scale(1); }
+  30% { -webkit-transform: scale(0.99); }
+  50% { -webkit-transform: scale(0.97); }
+  70% { -webkit-transform: scale(0.99); }
+  100% { -webkit-transform: scale(1); }
+}
+
+.pulse-add {
+  -webkit-animation-name: 'pulse_animation';
+  -webkit-animation-duration: 100ms;
+  /*-webkit-transform-origin:70% 70%;*/
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+}
+
+.hello {
+  margin: 10px;
+  border: 1px solid grey;
+}
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <wds class="hello">hello, wds!</wds>
+
+    <script src="https://code.angularjs.org/1.2.18/angular.js"></script>
+    <script src="https://code.angularjs.org/1.2.18/angular-animate.js"></script>
+
+    <script type="text/javascript">
+
+angular.module('wds', ['ngAnimate'])
+.directive('wds', function($animate){
+  return {
+    scope: {},
+    restrict: 'E',
+    template: '<h1 ng-click="click()" ng-transclude></h1>',
+    replace: true,
+    transclude: true,
+    link: function($scope, iElm, iAttrs, controller) {
+      $scope.click = function() {
+        $animate.addClass(iElm, 'pulse', function() {
+          iElm.removeClass('pulse');
+        })
+      }
+    }
+  };
+});
+
+    </script>
+
+  </body>
+
+</html>
