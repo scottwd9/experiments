@@ -10,7 +10,7 @@
   "rules": {
     "quotes": [
       1,
-      "single"
+      "double"
     ]
   }
 }
