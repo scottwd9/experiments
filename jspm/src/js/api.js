@@ -1,8 +1,8 @@
 class Api {
-    load() {
-        /*eslint-disable no-console */
-        console.log("todo");
-    }
+  load() {
+    /*eslint-disable no-console */
+    console.log('todo');
+  }
 }
 
 export default new Api();
