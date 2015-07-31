@@ -1,6 +1,6 @@
 class Api {
   load() {
-    /*eslint-disable no-console */
+    /* eslint-disable no-console */
     console.log('todo');
   }
 }
